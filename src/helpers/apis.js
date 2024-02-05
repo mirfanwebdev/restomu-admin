@@ -1,9 +1,10 @@
 import axios from "axios";
+import { token } from "../utils/token";
 
 const config = {
   headers: {
     "Content-Type": "application/json",
-    Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+    Authorization: `Bearer ${token}`,
   },
 };
 
