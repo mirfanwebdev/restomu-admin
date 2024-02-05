@@ -1,8 +1,8 @@
 import image from "../../assets/cover-image.jpg";
 export default function LoginPage() {
   return (
-    <main className="flex gap-8">
-      <section className="relative">
+    <main id="login-page" className="flex gap-8">
+      <section id="cover" className="relative">
         <img src={image} alt="food-cover" className=" h-screen" />
         <div className=" absolute bottom-0 right-2 px-2 rounded-sm bg-white">
           Photo by{" "}
@@ -15,7 +15,10 @@ export default function LoginPage() {
           </a>
         </div>
       </section>
-      <section className="flex flex-col gap-4 justify-center">
+      <section
+        id="login-section"
+        className="flex flex-col gap-4 justify-center"
+      >
         <h1 className="text-3xl font-bold">RESTOMU</h1>
         <form className="flex flex-col gap-2">
           <div className="flex flex-col gap-1">
