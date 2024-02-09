@@ -16,7 +16,7 @@ export const editMenuById = createAsyncThunk(
 const initialState = {
   isLoading: false,
   detail: {},
-  error: null,
+  error: "",
 };
 export const editSlice = createSlice({
   name: "edit",

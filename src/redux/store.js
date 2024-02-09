@@ -4,6 +4,7 @@ import menuReducer from "./features/menu/menuSlice";
 import addReducer from "./features/add/addSlice";
 import editReducer from "./features/edit/editSlice";
 import deleteReducer from "./features/delete/deleteSlice";
+import registerReducer from "./features/register/registerSlice";
 
 export default configureStore({
   reducer: {
@@ -12,5 +13,6 @@ export default configureStore({
     add: addReducer,
     edit: editReducer,
     delete: deleteReducer,
+    register: registerReducer,
   },
 });

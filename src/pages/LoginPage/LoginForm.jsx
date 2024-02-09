@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 import { postAuthForm } from "../../redux/features/auth/authSlice";
 
 export default function LoginForm() {
@@ -60,6 +61,13 @@ export default function LoginForm() {
           </button>
         </div>
       </form>
+      <div>
+        Don&apos;t have an account?{" "}
+        <Link className="font-semibold" to="/register">
+          Register
+        </Link>{" "}
+        to create one
+      </div>
     </section>
   );
 }

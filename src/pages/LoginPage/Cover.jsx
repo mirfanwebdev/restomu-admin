@@ -24,6 +24,7 @@ export default function Cover() {
           rel={linksData[0].rel}
           target={linksData[0].target}
           href={linksData[0].href}
+          className="font-semibold"
         >
           {linksData[0].text}
         </a>{" "}
@@ -32,6 +33,7 @@ export default function Cover() {
           rel={linksData[1].rel}
           target={linksData[1].target}
           href={linksData[1].href}
+          className="font-semibold"
         >
           {linksData[1].text}
         </a>
