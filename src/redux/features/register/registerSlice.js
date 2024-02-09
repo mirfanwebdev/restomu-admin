@@ -8,21 +8,27 @@ export const postRegisterForm = createAsyncThunk(
       const res = await apis.register(form);
       return res.data;
     } catch (error) {
-      return error;
+      throw error.response.data;
+      // console.log(error.response.data);
     }
   }
 );
 
 const initialState = {
   isLoading: false,
-  success_message: "",
+  message: "",
   error: "",
 };
 
 const registerSlice = createSlice({
   name: "register",
   initialState: initialState,
-  reducers: {},
+  reducers: {
+    clear: (state) => {
+      state.message = "";
+      state.error = "";
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(postRegisterForm.pending, (state) => {
@@ -34,10 +40,11 @@ const registerSlice = createSlice({
       })
       .addCase(postRegisterForm.rejected, (state, action) => {
         state.isLoading = false;
-        state.data = {};
         state.error = action?.error.message;
       });
   },
 });
+
+export const { clear } = registerSlice.actions;
 
 export default registerSlice.reducer;
