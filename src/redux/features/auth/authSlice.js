@@ -6,7 +6,8 @@ export const postAuthForm = createAsyncThunk(
   async (form) => {
     try {
       const res = await apis.login(form);
-      // console.log(res.data);
+      // const token = res.data.data.token;
+      // localStorage.setItem("accessToken", token);
       return res.data;
     } catch (error) {
       // console.log(error.response.data);

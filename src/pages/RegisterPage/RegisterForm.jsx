@@ -4,6 +4,8 @@ import {
   postRegisterForm,
   clear,
 } from "../../redux/features/register/registerSlice";
+import { postAuthForm } from "../../redux/features/auth/authSlice";
+import { useNavigate } from "react-router-dom";
 export default function RegisterForm() {
   const [form, setForm] = useState({
     name: "",
@@ -13,22 +15,23 @@ export default function RegisterForm() {
 
   const formItems = [
     {
-      label: "Name",
+      label: "Name:",
       name: "name",
       type: "text",
     },
     {
-      label: "Username",
+      label: "Username:",
       name: "username",
       type: "text",
     },
     {
-      label: "Password",
+      label: "Password:",
       name: "password",
       type: "password",
     },
   ];
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setForm({
@@ -38,7 +41,7 @@ export default function RegisterForm() {
     dispatch(clear());
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const payload = {
       name: form.name,
@@ -46,7 +49,15 @@ export default function RegisterForm() {
       password: form.password,
       roleId: 1,
     };
-    dispatch(postRegisterForm(payload));
+    dispatch(postRegisterForm(payload)).then(() => {
+      const loginPayload = {
+        username: payload.username,
+        password: payload.password,
+      };
+      dispatch(postAuthForm(loginPayload)).then(() => {
+        navigate("/");
+      });
+    });
   };
 
   return (

@@ -8,6 +8,7 @@ export default function CombineRoute(routesList) {
       const obj = {};
       obj.path = route.path;
       obj.element = <ProtectedRoute>{route.element}</ProtectedRoute>;
+      obj.children = route?.children;
       return obj;
     });
 
