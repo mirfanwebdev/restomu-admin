@@ -36,7 +36,7 @@ const registerSlice = createSlice({
       })
       .addCase(postRegisterForm.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.success_message = action?.payload.message;
+        state.message = action?.payload.message;
       })
       .addCase(postRegisterForm.rejected, (state, action) => {
         state.isLoading = false;
