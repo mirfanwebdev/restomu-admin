@@ -35,6 +35,8 @@ const registerSlice = createSlice({
         state.isLoading = true;
       })
       .addCase(postRegisterForm.fulfilled, (state, action) => {
+        const username = action?.payload.data.username;
+        localStorage.setItem("username", username);
         state.isLoading = false;
         state.message = action?.payload.message;
       })

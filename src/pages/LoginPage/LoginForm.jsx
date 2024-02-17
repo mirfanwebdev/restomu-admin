@@ -31,6 +31,7 @@ export default function LoginForm() {
       username: form.username,
       password: form.password,
     };
+
     dispatch(postAuthForm(payload)).then(() => navigate("/dashboard"));
     // navigate("/dashboard");
   };

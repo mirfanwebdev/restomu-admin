@@ -6,8 +6,8 @@ export const postAuthForm = createAsyncThunk(
   async (form) => {
     try {
       const res = await apis.login(form);
-      // const token = res.data.data.token;
-      // localStorage.setItem("accessToken", token);
+      const username = form.username;
+      localStorage.setItem("username", username);
       return res.data;
     } catch (error) {
       // console.log(error.response.data);
@@ -47,4 +47,5 @@ export const authSlice = createSlice({
   },
 });
 
+export const { setUsername } = authSlice.actions;
 export default authSlice.reducer;
