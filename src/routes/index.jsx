@@ -14,6 +14,11 @@ const routesList = [
     isProtected: true,
     children: [{ path: "dashboard", element: <DashboardPage /> }],
   },
+  // {
+  //   path: "dashboard",
+  //   element: <DashboardPage />,
+  //   isProtected: true,
+  // },
   {
     path: "login",
     element: <LoginPage />,

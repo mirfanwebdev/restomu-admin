@@ -49,7 +49,10 @@ export default function RegisterForm() {
       password: form.password,
       roleId: 1,
     };
-    dispatch(postRegisterForm(payload)).then(() => {
+    dispatch(postRegisterForm(payload)).then((res) => {
+      if (res.error) {
+        return;
+      }
       const loginPayload = {
         username: payload.username,
         password: payload.password,

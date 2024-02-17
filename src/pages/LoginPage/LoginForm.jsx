@@ -19,6 +19,7 @@ export default function LoginForm() {
       ...form,
       [e.target.name]: e.target.value,
     });
+    setValidateError(null);
   };
 
   const handleSubmit = () => {
@@ -46,7 +47,7 @@ export default function LoginForm() {
             onChange={handleChange}
             name="username"
             id="username"
-            className="border"
+            className="border py-2 px-3 rounded-md text-sm mb-3"
           />
         </div>
         <div className="flex flex-col gap-1">
@@ -56,7 +57,7 @@ export default function LoginForm() {
             onChange={handleChange}
             name="password"
             id="password"
-            className="border"
+            className="border py-2 px-3 rounded-md text-sm mb-3"
           />
         </div>
         <div>
