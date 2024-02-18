@@ -4,6 +4,7 @@ import LoginPage from "../pages/LoginPage/index.jsx";
 import DashboardPage from "../pages/DashboardPage/index.jsx";
 import RegisterPage from "../pages/RegisterPage/index.jsx";
 import Homepage from "../pages/HomePage/index.jsx";
+import MenusPage from "../pages/MenusPage/index.jsx";
 // import AuthRoute from "../hoc/AuthRoute.jsx";
 // import ProtectedRoute from "../hoc/ProtectedRoute.jsx";
 
@@ -12,13 +13,11 @@ const routesList = [
     path: "/",
     element: <Homepage />,
     isProtected: true,
-    children: [{ path: "dashboard", element: <DashboardPage /> }],
+    children: [
+      { path: "dashboard", element: <DashboardPage /> },
+      { path: "menus", element: <MenusPage /> },
+    ],
   },
-  // {
-  //   path: "dashboard",
-  //   element: <DashboardPage />,
-  //   isProtected: true,
-  // },
   {
     path: "login",
     element: <LoginPage />,
