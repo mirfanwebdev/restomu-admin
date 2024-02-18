@@ -3,9 +3,9 @@ import * as apis from "../../../helpers/apis";
 
 export const fetchMenu = createAsyncThunk(
   "menu/fetchMenu",
-  async (page = 1) => {
+  async (param = { type: "", page: 1 }) => {
     try {
-      const res = await apis.getMenu(page);
+      const res = await apis.getMenu(param);
       const data = res.data.data;
       return data;
     } catch (error) {

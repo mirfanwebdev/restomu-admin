@@ -1,11 +1,13 @@
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchMenu } from "../../redux/features/menu/menuSlice";
-export default function ListMenu() {
+import { fetchMenu } from "../../../redux/features/menu/menuSlice";
+import propTypes from "prop-types";
+import MenuType from "../../../components/MenuType";
+export default function ListMenu({ filter }) {
   const { menus } = useSelector((state) => state.menu);
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(fetchMenu());
+    dispatch(fetchMenu(filter));
   }, []);
   return (
     <div className="grid grid-cols-3 gap-6">
@@ -21,6 +23,7 @@ export default function ListMenu() {
           />
           <div>
             <div>{menu.name}</div>
+            <MenuType type={menu.type} />
             {/* <div>{menu.description}</div> */}
             <div>{menu.priceFormatted}</div>
           </div>
@@ -29,3 +32,7 @@ export default function ListMenu() {
     </div>
   );
 }
+
+ListMenu.propTypes = {
+  filter: propTypes.object,
+};

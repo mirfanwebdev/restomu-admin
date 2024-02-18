@@ -1,12 +1,12 @@
-import { useOutletContext } from "react-router-dom";
-import ListMenu from "./ListMenu";
+import { useOutletContext, Outlet } from "react-router-dom";
+import FilterButtons from "./FilterButtons";
+// import ListMenu from "./ListMenu";
 export default function MenusPage() {
   const style = useOutletContext();
   return (
     <div className={style}>
-      <div>menu filter</div>
-      <div>add menu</div>
-      <ListMenu />
+      <FilterButtons />
+      <Outlet />
       <div>pagination</div>
     </div>
   );

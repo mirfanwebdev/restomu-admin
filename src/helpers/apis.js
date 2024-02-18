@@ -18,9 +18,9 @@ export async function login(form) {
   return response;
 }
 
-export async function getMenu(param) {
+export async function getMenu({ type, page }) {
   const response = await axios.get(
-    `https://api.mudoapi.tech/menus?name=&type=&perPage=5&page=${param}`
+    `https://api.mudoapi.tech/menus?name=&type=${type}&perPage=9&page=${page}`
   );
   return response;
 }
