@@ -3,7 +3,7 @@ import * as apis from "../../../helpers/apis";
 
 export const fetchMenu = createAsyncThunk(
   "menu/fetchMenu",
-  async (param = { type: "", page: 1 }) => {
+  async (param = { name: "", type: "", page: 1 }) => {
     try {
       const res = await apis.getMenu(param);
       const data = res.data.data;
@@ -17,6 +17,7 @@ export const fetchMenu = createAsyncThunk(
 const initialState = {
   menus: [],
   currentPage: 1,
+  isLoading: false,
   error: "",
 };
 export const menuSlice = createSlice({
@@ -27,10 +28,12 @@ export const menuSlice = createSlice({
     builder
       .addCase(fetchMenu.pending, (state) => {
         state.menus = [];
+        state.isLoading = true;
       })
       .addCase(fetchMenu.fulfilled, (state, action) => {
         state.menus = action.payload.Data;
         state.currentPage = action.payload.currentPage;
+        state.isLoading = false;
       })
       .addCase(fetchMenu.rejected, (state, action) => {
         state.error = action?.error?.message;

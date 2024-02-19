@@ -4,11 +4,14 @@ import { fetchMenu } from "../../../redux/features/menu/menuSlice";
 import propTypes from "prop-types";
 import MenuType from "../../../components/MenuType";
 export default function ListMenu({ filter }) {
-  const { menus } = useSelector((state) => state.menu);
+  const { menus, isLoading } = useSelector((state) => state.menu);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchMenu(filter));
   }, []);
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
   return (
     <div className="grid grid-cols-3 gap-6">
       {menus.map((menu) => (
